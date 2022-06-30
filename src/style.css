@@ -43,7 +43,11 @@ body {
 .Info > h2 {
   margin-bottom: 5px;
   margin-top: 15px;
-  color: var(--accentСolor)
+  color: var(--accentСolor);
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  text-decoration: underline;
 }
 
 .Info > input {
@@ -72,4 +76,9 @@ body {
 
 .Info > .deleteButton {
   background-color: rgb(219, 95, 95);
+}
+
+.renderCV {
+  display: flex;
+  flex-direction: column;
 }

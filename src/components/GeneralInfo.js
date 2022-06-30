@@ -1,10 +1,6 @@
 import React from "react";
 
 class GeneralInfo extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="Info">
@@ -13,42 +9,42 @@ class GeneralInfo extends React.Component {
           type='text'
           placeholder="Name"
           name="name"
-          onChange={this.props.onInputChange}
+          onChange={this.props.onGeneralInfoChange}
           value={this.props.name}
         />
         <input 
           type='text'
           placeholder="Position"
           name="position"
-          onChange={this.props.onInputChange}
+          onChange={this.props.onGeneralInfoChange}
           value={this.props.position}
         />
         <input 
           type='text'
           placeholder="Phone"
           name="phone"
-          onChange={this.props.onInputChange}
+          onChange={this.props.onGeneralInfoChange}
           value={this.props.phone}
         />
         <input 
           type='email'
           placeholder="Email"
           name="email"
-          onChange={this.props.onInputChange}
+          onChange={this.props.onGeneralInfoChange}
           value={this.props.email}
         />
         <input 
           type='text'
           placeholder="Location"
           name="location"
-          onChange={this.props.onInputChange}
+          onChange={this.props.onGeneralInfoChange}
           value={this.props.location}
         />
         <textarea
           rows="5"
           placeholder="Description"
           name="description"
-          onChange={this.props.onInputChange}
+          onChange={this.props.onGeneralInfoChange}
           value={this.props.description}
         />
       </div>
