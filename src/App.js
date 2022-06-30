@@ -3,18 +3,17 @@ import InputForm from './components/InputForm'
 import RenderCV from './components/RenderCV'
 import uniqid from "uniqid";
 import './style.css'
-import { toHaveStyle } from "@testing-library/jest-dom/dist/matchers";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      position: '',
-      phone: '',
-      email: '',
-      location: '',
-      description: '',
+      name: 'Evgeny Sergeev',
+      position: 'React Frontend Developer',
+      phone: '8 (915) 70-30-200',
+      email: 'evgen.alexa@gmail.com',
+      location: 'Russia, Tver',
+      description: 'On the way to becoming a rock star in JavaScript',
       education: [
         {
           id: uniqid(),
@@ -33,16 +32,22 @@ class App extends React.Component {
           description: 'some description #2 will be here'
         }
       ],
-      practice: []
+      practice: [
+        {
+          id: uniqid(),
+          company: 'Apple',
+          position: 'CEO',
+          startDate: '1995',
+          endDate: '1998',
+          description: 'some description #3 will be here'
+        }
+      ]
     }
 
     this.handleGeneralInfoChange = this.handleGeneralInfoChange.bind(this);
-    this.handleEduChange = this.handleEduChange.bind(this);
-    this.handlePracticeChange = this.handlePracticeChange.bind(this);
-    this.addEducation = this.addEducation.bind(this);
-    this.addPractice = this.addPractice.bind(this);
-    this.deleteEducation = this.deleteEducation.bind(this);
-    this.deletePractice = this.deletePractice.bind(this);
+    this.handleInputsChange = this.handleInputsChange.bind(this);
+    this.addFields = this.addFields.bind(this);
+    this.deleteFields = this.deleteFields.bind(this);
   }
 
   handleGeneralInfoChange(event) {
@@ -51,9 +56,9 @@ class App extends React.Component {
     })
   }
 
-  handleEduChange(event, id) {
-    const oldEducation = [...this.state.education]
-    const newEducation = oldEducation.map((item) => {
+  handleInputsChange(event, id, fieldset) {
+    const oldArr = [...this.state[fieldset]]
+    const newArr = oldArr.map((item) => {
       if (item.id !== id) return item
       else {
         const newItem = {...item};
@@ -62,43 +67,46 @@ class App extends React.Component {
       }
     })
     this.setState({
-      education: newEducation
+      [fieldset]: newArr
     })
   }
 
-  handlePracticeChange(event) {
-    const oldPractice = [...this.state.practice];
-  }
-
-  addEducation() {
-    const newEducation = {
-      id: uniqid(),
-      course: '',
-      university: '',
-      startDate: '',
-      endDate: '',
-      description: ''
+  addFields(fieldset) {
+    if (fieldset === 'education') {
+      const newEducation = {
+        id: uniqid(),
+        course: '',
+        university: '',
+        startDate: '',
+        endDate: '',
+        description: ''
+      }
+      this.setState({
+        education: this.state.education.concat(newEducation)
+      })
+    } else if (fieldset === 'practice') {
+      const newPractice = {
+        id: uniqid(),
+        company: '',
+        position: '',
+        startDate: '',
+        endDate: '',
+        description: ''
+      }
+      this.setState({
+        practice: this.state.practice.concat(newPractice)
+      })
     }
-    this.setState({
-      education: this.state.education.concat(newEducation)
-    })
   }
 
-  deleteEducation(id) {
-    console.log(id);
-    const oldEducation = [...this.state.education];
-    const newEducation = oldEducation.filter((item) => {
+  deleteFields(id, fieldset) {
+    const oldArr = [...this.state[fieldset]];
+    const newArr = oldArr.filter((item) => {
       return item.id === id ? false : true;
     })
     this.setState({
-      education: newEducation
+      [fieldset]: newArr
     })
-  }
-
-  addPractice() {
-  }
-
-  deletePractice(id) {
   }
 
   render() {
@@ -107,12 +115,9 @@ class App extends React.Component {
         <InputForm 
           allInfo={this.state}
           onGeneralInfoChange={this.handleGeneralInfoChange}
-          onEduChange={this.handleEduChange}
-          onPracticeChange={this.handlePracticeChange}
-          onAddEducation={this.addEducation}
-          onAddPractice={this.addPractice}
-          onDeleteEducation={this.deleteEducation}
-          onDeletePractice={this.deletePractice}
+          onInputsChange={this.handleInputsChange}
+          onAddFields={this.addFields}
+          onDeleteFields={this.deleteFields}
         />
         <RenderCV 
           allInfo={this.state}

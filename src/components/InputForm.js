@@ -18,15 +18,15 @@ class InputForm extends React.Component {
         />
         <EducationalExperience
           education={this.props.allInfo.education}
-          onEduChange={this.props.onEduChange}
-          onAddEducation={this.props.onAddEducation}
-          onDeleteEducation={this.props.onDeleteEducation}
+          onInputsChange={this.props.onInputsChange}
+          onAddFields={this.props.onAddFields}
+          onDeleteFields={this.props.onDeleteFields}
         />
         <PracticalExperience 
           practice={this.props.allInfo.practice}
-          onPracticeChange={this.props.onPracticeChange}
-          onAddPractice={this.props.onAddPractice}
-          onDeletePractice={this.props.onDeletePractice}
+          onInputsChange={this.props.onInputsChange}
+          onAddFields={this.props.onAddFields}
+          onDeleteFields={this.props.onDeleteFields}
         />
       </form>
     )

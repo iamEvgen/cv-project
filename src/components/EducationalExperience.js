@@ -8,8 +8,8 @@ class EducationalExperience extends React.Component {
         <EduItem
           key={item.id}
           dataForItem={item}
-          onEduChange={(event) => this.props.onEduChange(event, item.id)}
-          onDeleteEducation={() => this.props.onDeleteEducation(item.id)}
+          onInputsChange={(event) => this.props.onInputsChange(event, item.id, 'education')}
+          onDeleteFields={() => this.props.onDeleteFields(item.id, 'education')}
         />
       )
     })
@@ -18,7 +18,9 @@ class EducationalExperience extends React.Component {
       <div className="Info">
         <h2>Educational experience</h2>
         {eduItems}
-        <button onClick={() => this.props.onAddEducation()}>Add</button>
+        <button onClick={() => this.props.onAddFields('education')}>
+          Add
+        </button>
       </div>
     ) 
   }
