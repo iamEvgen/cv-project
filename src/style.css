@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+:root {
+  --accentСolor: rgb(45, 132, 104);
+  --mainFont: 'Nunito', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--mainFont);
+}
+
+.App {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+  align-items: flex-start;
+}
+
+.inputForm,
+.renderCV {
+  border: 1px solid gray;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.inputForm {
+  width: 300px;
+  padding-top: 0;
+}
+
+.renderCV {
+  width: 500px;
+}
+
+.Info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Info > h2 {
+  margin-bottom: 5px;
+  margin-top: 15px;
+  color: var(--accentСolor)
+}
+
+.Info > input {
+  padding: 5px;
+  font-family: var(--mainFont);
+}
+
+.Info > textarea {
+  resize: none;
+  text-indent: 5px;
+  font-family: var(--mainFont);
+}
+
+.Info > button {
+  width: 50%;
+  background-color: var(--accentСolor);
+  padding: 5px;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+}
+
+.Info > button:hover {
+  cursor: pointer;
+}
+
+.Info > .deleteButton {
+  background-color: rgb(219, 95, 95);
+}
