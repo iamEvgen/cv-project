@@ -9,8 +9,8 @@ class RenderCV extends React.Component {
     return (
       <div className="renderCV">
         <RenderHeader allInfo={this.props.allInfo} />
-        <RenderEducation education={this.props.allInfo.education} />
         <RenderPractice practice={this.props.allInfo.practice} />
+        <RenderEducation education={this.props.allInfo.education} />
       </div>
     )
   }

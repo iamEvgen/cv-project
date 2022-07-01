@@ -132,3 +132,30 @@ body {
   margin: 0;
   color: var(--accentСolor);
 }
+
+.renderCV h3 {
+  color: var(--accentСolor);
+}
+
+.cvItem {
+  margin-top: 20px;
+}
+
+.cvHeader {
+  display: flex;
+  gap: 20px;
+}
+
+.cvTitle {
+  margin-right: auto;
+  font-weight: bold;
+}
+
+.cvMoreInfo {
+  font-size: 0.9rem;
+}
+
+.cvDescription {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}

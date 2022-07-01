@@ -9,37 +9,45 @@ class App extends React.Component {
     super(props);
     this.state = {
       name: 'Evgeny Sergeev',
-      position: 'React Frontend Developer',
-      phone: '8 (915) 70-30-200',
-      email: 'evgen.alexa@gmail.com',
+      position: 'React.js Developer',
+      phone: '+7 (007) 123-45-67',
+      email: 'evgen@google.com',
       location: 'Russia, Tver',
       description: 'On the way to becoming a rock star in JavaScript',
       education: [
         {
           id: uniqid(),
-          course: '1234',
-          university: '50CC',
-          startDate: 2011,
-          endDate: 2018,
-          description: 'some description #1 will be here'
+          course: 'The Odin Project',
+          university: 'The Odin Project',
+          startDate: 2021,
+          endDate: 2022,
+          description: 'High quality coding education created by an Open-Source community.'
         },
         {
           id: uniqid(),
-          course: '2345',
-          university: '69CC',
-          startDate: 2015,
-          endDate: 2019,
-          description: 'some description #2 will be here'
+          course: 'Bachelor of Information Technology',
+          university: 'University of Tampa, FL',
+          startDate: 2008,
+          endDate: 2013,
+          description: 'React fundamentals (JSX, Virtual DOM, Native, Node.js) CI/CD & DevOps CSS, Git, Sigma Excellent Communicator Flux/Redux Team-oriented SEO Integration'
         }
       ],
       practice: [
         {
           id: uniqid(),
-          company: 'Apple',
-          position: 'CEO',
-          startDate: '1995',
-          endDate: '1998',
-          description: 'some description #3 will be here'
+          company: 'BravDev',
+          position: 'React Developer',
+          startDate: 'April 2017',
+          endDate: 'Present',
+          description: "Used understanding of React fundamentals to promote better component lifecycle practices, increasing turnaround speed by 23% with 100% deadline adherence"
+        },
+        {
+          id: uniqid(),
+          company: 'ASPTech',
+          position: 'Junior Javascript Developer',
+          startDate: 'June 2013',
+          endDate: 'July 2016',
+          description: "Followed documentation to always remain up-to-speed on what needs to be updated in response to new release versions."
         }
       ]
     }

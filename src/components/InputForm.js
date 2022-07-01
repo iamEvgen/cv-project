@@ -16,14 +16,14 @@ class InputForm extends React.Component {
           description={this.props.allInfo.description}
           onGeneralInfoChange={this.props.onGeneralInfoChange}
         />
-        <EducationalExperience
-          education={this.props.allInfo.education}
+        <PracticalExperience 
+          practice={this.props.allInfo.practice}
           onInputsChange={this.props.onInputsChange}
           onAddFields={this.props.onAddFields}
           onDeleteFields={this.props.onDeleteFields}
         />
-        <PracticalExperience 
-          practice={this.props.allInfo.practice}
+        <EducationalExperience
+          education={this.props.allInfo.education}
           onInputsChange={this.props.onInputsChange}
           onAddFields={this.props.onAddFields}
           onDeleteFields={this.props.onDeleteFields}
