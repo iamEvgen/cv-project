@@ -1,20 +1,16 @@
 import React from "react";
+import RenderHeader from "./RenderHeader";
+import RenderEducation from "./RenderEducation";
+import RenderPractice from "./RenderPractice";
 
 
 class RenderCV extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="renderCV">
-        <p>name: {this.props.allInfo.name}</p>
-        <p>position: {this.props.allInfo.position}</p>
-        <p>phone: {this.props.allInfo.phone}</p>
-        <p>email: {this.props.allInfo.email}</p>
-        <p>location: {this.props.allInfo.location}</p>
-        <p>description: {this.props.allInfo.description}</p>
+        <RenderHeader allInfo={this.props.allInfo} />
+        <RenderEducation education={this.props.allInfo.education} />
+        <RenderPractice practice={this.props.allInfo.practice} />
       </div>
     )
   }
