@@ -1,54 +1,51 @@
 import React from "react";
 
-class EduItem extends React.Component {
-  render() {
-    return (
-      <div className="Info">
+function EduItem(props) {
+  return (
+    <div className="Info">
         <input 
           type='text'
           placeholder="Course / Program"
           name="course"
-          onChange={this.props.onInputsChange}
-          value={this.props.dataForItem.course}
+          onChange={props.onInputsChange}
+          value={props.dataForItem.course}
         />
         <input 
           type='text'
           placeholder="University"
           name="university"
-          onChange={this.props.onInputsChange}
-          value={this.props.dataForItem.university}
+          onChange={props.onInputsChange}
+          value={props.dataForItem.university}
         />
         <input 
           type='text'
           placeholder="Start date"
           name="startDate"
-          onChange={this.props.onInputsChange}
-          value={this.props.dataForItem.startDate}
+          onChange={props.onInputsChange}
+          value={props.dataForItem.startDate}
         />
         <input 
           type='text'
           placeholder="End date"
           name="endDate"
-          onChange={this.props.onInputsChange}
-          value={this.props.dataForItem.endDate}
+          onChange={props.onInputsChange}
+          value={props.dataForItem.endDate}
         />
         <textarea
           rows="3"
           placeholder="Description"
           name="description"
-          onChange={this.props.onInputsChange}
-          value={this.props.dataForItem.description}
+          onChange={props.onInputsChange}
+          value={props.dataForItem.description}
         />
         <button 
-          onClick={this.props.onDeleteFields}
+          onClick={props.onDeleteFields}
           className="deleteButton"
         >
           Delete
         </button>
       </div>
-    )
-    
-  }
+  )
 }
 
 export default EduItem;

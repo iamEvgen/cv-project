@@ -4,16 +4,14 @@ import RenderEducation from "./RenderEducation";
 import RenderPractice from "./RenderPractice";
 
 
-class RenderCV extends React.Component {
-  render() {
-    return (
-      <div className="renderCV">
-        <RenderHeader allInfo={this.props.allInfo} />
-        <RenderPractice practice={this.props.allInfo.practice} />
-        <RenderEducation education={this.props.allInfo.education} />
-      </div>
-    )
-  }
+function RenderCV(props) {
+  return (
+    <div className="renderCV">
+      <RenderHeader allInfo={props.allInfo} />
+      <RenderPractice practice={props.allInfo.practice} />
+      <RenderEducation education={props.allInfo.education} />
+    </div>
+  )
 }
 
 export default RenderCV

@@ -3,34 +3,32 @@ import GeneralInfo from './GeneralInfo'
 import EducationalExperience from './EducationalExperience'
 import PracticalExperience from './PracticalExperience'
 
-class InputForm extends React.Component {
-  render() {
-    return (
-      <form onSubmit={(event) => {event.preventDefault()}} className="inputForm">
-        <GeneralInfo 
-          name={this.props.allInfo.name}
-          position={this.props.allInfo.position}
-          phone={this.props.allInfo.phone}
-          email={this.props.allInfo.email}
-          location={this.props.allInfo.location}
-          description={this.props.allInfo.description}
-          onGeneralInfoChange={this.props.onGeneralInfoChange}
-        />
-        <PracticalExperience 
-          practice={this.props.allInfo.practice}
-          onInputsChange={this.props.onInputsChange}
-          onAddFields={this.props.onAddFields}
-          onDeleteFields={this.props.onDeleteFields}
-        />
-        <EducationalExperience
-          education={this.props.allInfo.education}
-          onInputsChange={this.props.onInputsChange}
-          onAddFields={this.props.onAddFields}
-          onDeleteFields={this.props.onDeleteFields}
-        />
-      </form>
-    )
-  }
+function InputForm(props) {
+  return (
+    <form onSubmit={(event) => {event.preventDefault()}} className="inputForm">
+      <GeneralInfo 
+        name={props.allInfo.name}
+        position={props.allInfo.position}
+        phone={props.allInfo.phone}
+        email={props.allInfo.email}
+        location={props.allInfo.location}
+        description={props.allInfo.description}
+        onGeneralInfoChange={props.onGeneralInfoChange}
+      />
+      <PracticalExperience 
+        practice={props.allInfo.practice}
+        onInputsChange={props.onInputsChange}
+        onAddFields={props.onAddFields}
+        onDeleteFields={props.onDeleteFields}
+      />
+      <EducationalExperience
+        education={props.allInfo.education}
+        onInputsChange={props.onInputsChange}
+        onAddFields={props.onAddFields}
+        onDeleteFields={props.onDeleteFields}
+      />
+    </form>
+  )
 }
 
 export default InputForm;

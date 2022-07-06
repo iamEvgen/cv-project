@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import InputForm from './components/InputForm'
 import RenderCV from './components/RenderCV'
 import uniqid from "uniqid";
 import './style.css'
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+function App() {
+  const [state, setState] = useState(
+    {
       name: 'Evgeny Sergeev',
       position: 'React.js Developer',
       phone: '+7 (007) 123-45-67',
@@ -51,21 +50,17 @@ class App extends React.Component {
         }
       ]
     }
+  )
 
-    this.handleGeneralInfoChange = this.handleGeneralInfoChange.bind(this);
-    this.handleInputsChange = this.handleInputsChange.bind(this);
-    this.addFields = this.addFields.bind(this);
-    this.deleteFields = this.deleteFields.bind(this);
-  }
-
-  handleGeneralInfoChange(event) {
-    this.setState({
+  function handleGeneralInfoChange(event) {
+    setState({
+      ...state,
       [event.target.name]: event.target.value
     })
   }
 
-  handleInputsChange(event, id, fieldset) {
-    const oldArr = [...this.state[fieldset]]
+  function handleInputsChange(event, id, fieldset) {
+    const oldArr = [...state[fieldset]]
     const newArr = oldArr.map((item) => {
       if (item.id !== id) return item
       else {
@@ -74,12 +69,13 @@ class App extends React.Component {
         return newItem;
       }
     })
-    this.setState({
+    setState({
+      ...state,
       [fieldset]: newArr
     })
   }
 
-  addFields(fieldset) {
+  function addFields(fieldset) {
     if (fieldset === 'education') {
       const newEducation = {
         id: uniqid(),
@@ -89,8 +85,9 @@ class App extends React.Component {
         endDate: '',
         description: ''
       }
-      this.setState({
-        education: this.state.education.concat(newEducation)
+      setState({
+        ...state,
+        education: state.education.concat(newEducation)
       })
     } else if (fieldset === 'practice') {
       const newPractice = {
@@ -101,38 +98,38 @@ class App extends React.Component {
         endDate: '',
         description: ''
       }
-      this.setState({
-        practice: this.state.practice.concat(newPractice)
+      setState({
+        ...state,
+        practice: state.practice.concat(newPractice)
       })
     }
   }
 
-  deleteFields(id, fieldset) {
-    const oldArr = [...this.state[fieldset]];
+  function deleteFields(id, fieldset) {
+    const oldArr = [...state[fieldset]];
     const newArr = oldArr.filter((item) => {
       return item.id === id ? false : true;
     })
-    this.setState({
+    setState({
+      ...state,
       [fieldset]: newArr
     })
   }
 
-  render() {
-    return (
-      <div className="App">
-        <InputForm 
-          allInfo={this.state}
-          onGeneralInfoChange={this.handleGeneralInfoChange}
-          onInputsChange={this.handleInputsChange}
-          onAddFields={this.addFields}
-          onDeleteFields={this.deleteFields}
-        />
-        <RenderCV 
-          allInfo={this.state}
-        />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <InputForm 
+        allInfo={state}
+        onGeneralInfoChange={handleGeneralInfoChange}
+        onInputsChange={handleInputsChange}
+        onAddFields={addFields}
+        onDeleteFields={deleteFields}
+      />
+      <RenderCV 
+        allInfo={state}
+      />
+    </div>
+  );
 }
 
 export default App;
