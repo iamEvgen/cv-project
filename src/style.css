@@ -32,6 +32,10 @@ body {
 
 .renderCV {
   width: 500px;
+  position: sticky;
+  top: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 82px);
 }
 
 .Info {
